@@ -1,9 +1,36 @@
 package frames
+package color
+
+import "runtime"
+
+var Reset  = "\033[0m"
+var Red    = "\033[31m"
+var Green  = "\033[32m"
+var Yellow = "\033[33m"
+var Blue   = "\033[34m"
+var Purple = "\033[35m"
+var Cyan   = "\033[36m"
+var Gray   = "\033[37m"
+var White  = "\033[97m"
+
+func init() {
+	if runtime.GOOS == "windows" {
+		Reset  = ""
+		Red    = ""
+		Green  = ""
+		Yellow = ""
+		Blue   = ""
+		Purple = ""
+		Cyan   = ""
+		Gray   = ""
+		White  = ""
+	}
+}
 
 var Rick = DefaultFrameType(rickFrames)
 
 var rickFrames = []string{
-	`tfffLfttffffffLLffffttttttttttt1tfffffffffftttttt111111tffffffffftttff
+	color.White + `tfffLfttffffffLLffffttttttttttt1tfffffffffftttttt111111tffffffffftttff
 fttfffttfffffffffttfftttttt1t1tt11tfffffftttttt111t111111ttffffLLffttf
 LfttttffLLLfttttftfLftttttttffffttttffffttttfftt11t111tt111ttfffLffttf
 LLffttfLLffttfffftfLfttttttffttt11111ttttffffffftt1111tft11111ttfffftt
@@ -40,7 +67,7 @@ ttttffftt111ttffftt11i,,.,...,iiii,,,,:,,...............:1ttt1111ttfff
 111111111tttttttt1i,.....  .... .:........................,i1tttt11111
 1111111111t11t11111,,....,,.... ,:::,,,...................,11ttttt11t1`,
 
-	`tfffLLttffffffLLffffttttttttttt1tffffffffffttttttt11111tffffffffftttff
+	color.Red + `tfffLLttffffffLLffffttttttttttt1tffffffffffttttttt11111tffffffffftttff
 fttfffttfffffffffttfftttttt1tttt1ttftfffftt1ttt111t111111ttffffLLffttf
 LfttttffLLLfttttttfLftttttttfft11i,,:,,i11ttfftt11t111tt111tttfffffttt
 LLffttfLLLfttfffftfLLttttttfff1,,,,,,,,,:,tffffft11111tft11111ttfffftt
@@ -77,7 +104,7 @@ ttt1tttt1ttttttttt1111,:,.......i1,,,:::.................,it11t11ttttt
 111111111tttttttt1i,,ii:  .,....,:::::... .,,,,,:,.....,,1ttttttttt111
 1111111111tt1111111i,,.,:,i: ...,:::::.....:,,,,,:.....,1ttttttttt11t1`,
 
-	`tfffLLttffffffLLffffttttttttttt1ttt1iiiii1tttttttt11111tffffffffftttff
+	color.Green + `tfffLLttffffffLLffffttttttttttt1ttt1iiiii1tttttttt11111tffffffffftttff
 fttffftffffffffffttffttttt11tttt1i::,,,,,,:,111111t111111ttffffLLffttf
 LfttttffLLLfftttttfLftttttttfft1i,,,,,,,,,,:,ttt11t111tt111tttfffffttt
 LLffttfLLLfttfffftfLLtttttffffti,::,,,,,iii::1ftt11111tft11111ttfffftt
