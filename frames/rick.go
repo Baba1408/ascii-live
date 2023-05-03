@@ -1,5 +1,4 @@
 package frames
-package color
 
 var Rick = DefaultFrameType(rickFrames)
 
